@@ -1,11 +1,13 @@
-[gd_scene load_steps=36 format=3 uid="uid://djfeeipq7vvb8"]
+[gd_scene load_steps=42 format=3 uid="uid://djfeeipq7vvb8"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_lb33c"]
 [ext_resource type="Texture2D" uid="uid://dhtgw0rx886rv" path="res://player_sprites/player_death.png" id="1_v7gfp"]
 [ext_resource type="Texture2D" uid="uid://dabudwieip7mk" path="res://player_sprites/player_hurt.png" id="2_6deiq"]
+[ext_resource type="Texture2D" uid="uid://cul80taq4v5o3" path="res://player_sprites/player_duck.png" id="3_4wur5"]
 [ext_resource type="Texture2D" uid="uid://cxth8l2yahkeg" path="res://player_sprites/player_idle.png" id="3_vty6f"]
 [ext_resource type="Texture2D" uid="uid://dkp8u6hwnp2ud" path="res://player_sprites/player_run.png" id="4_t8njp"]
 [ext_resource type="Texture2D" uid="uid://dsay6x8k3aiu0" path="res://player_sprites/player_walk.png" id="5_w475h"]
+[ext_resource type="Texture2D" uid="uid://m7b2w6rx8auj" path="res://player_sprites/player_jump.png" id="6_sh8uf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tvy71"]
 size = Vector2(41, 77)
@@ -48,6 +50,10 @@ region = Rect2(32, 0, 32, 32)
 atlas = ExtResource("1_v7gfp")
 region = Rect2(0, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_giswm"]
+atlas = ExtResource("3_4wur5")
+region = Rect2(0, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_cbd72"]
 atlas = ExtResource("2_6deiq")
 region = Rect2(0, 0, 32, 32)
@@ -66,6 +72,18 @@ region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dogsa"]
 atlas = ExtResource("3_vty6f")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2qdn"]
+atlas = ExtResource("6_sh8uf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfx0q"]
+atlas = ExtResource("6_sh8uf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmqfo"]
+atlas = ExtResource("6_sh8uf")
 region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kuk6k"]
@@ -157,6 +175,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_giswm")
+}],
+"loop": true,
+"name": &"duck",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_cbd72")
 }, {
 "duration": 1.0,
@@ -178,6 +204,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2qdn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfx0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmqfo")
+}],
+"loop": true,
+"name": &"jump",
 "speed": 5.0
 }, {
 "frames": [{
@@ -238,4 +278,4 @@ shape = SubResource("RectangleShape2D_tvy71")
 position = Vector2(435, 624)
 scale = Vector2(5, 5.074)
 sprite_frames = SubResource("SpriteFrames_3dqom")
-animation = &"walk"
+animation = &"attack"
