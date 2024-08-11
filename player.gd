@@ -3,14 +3,16 @@ const speed : int = 500
 const jump_power: int = -2000
 const acc : int = 50
 const friction : int = 70 # > than acc
-const gravity : int = 140
+const gravity : int = 200
 const max_jumps : int = 2
 var current_jumps : int = 0
 
 func _physics_process(delta):
 	var input_dir : Vector2 = input()
 	if not is_on_floor():
-		velocity.y = gravity * delta
+		velocity.y = gravity
+	else:
+		velocity.y = 0
 	if input_dir != Vector2.ZERO:
 		velocity = velocity.move_toward(speed * input_dir, acc) #Accerlate
 		play_animation()
@@ -22,7 +24,7 @@ func _physics_process(delta):
 	
 func input() -> Vector2:
 	var input_dir = Vector2.ZERO
-	input_dir.x = Input.get_axis("move_left", "move_right")
+	input_dir.x = Input.get_axis("move_left", "move_right") # Left = -1, Right = +1
 	return input_dir
 func play_animation():
 	if Input.is_action_pressed("jump"):

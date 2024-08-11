@@ -21,4 +21,8 @@ debug_color = Color(0.916841, 0.113416, 0.646772, 0.42)
 position = Vector2(9, 327.75)
 shape = SubResource("RectangleShape2D_jr3rt")
 
+[node name="right_wall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(884, 330)
+shape = SubResource("RectangleShape2D_jr3rt")
+
 [node name="player" parent="." instance=ExtResource("1_vet0b")]
