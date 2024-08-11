@@ -278,4 +278,4 @@ shape = SubResource("RectangleShape2D_tvy71")
 position = Vector2(435, 624)
 scale = Vector2(5, 5.074)
 sprite_frames = SubResource("SpriteFrames_3dqom")
-animation = &"attack"
+animation = &"walk"
