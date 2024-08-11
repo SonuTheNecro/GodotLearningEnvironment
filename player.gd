@@ -16,6 +16,8 @@ func _physics_process(delta):
 	if input_dir != Vector2.ZERO:
 		if Input.is_action_pressed("run"):
 			speed = 750
+		elif Input.is_action_pressed("duck"):
+			speed = 250
 		else:
 			speed = 500
 		velocity = velocity.move_toward(speed * input_dir, acc) #Accerlate
@@ -38,6 +40,8 @@ func play_animation():
 	elif velocity.x != 0:
 		if speed == 500:
 			$AnimatedSprite2D.animation = "walk"
+		elif speed == 250:
+			$AnimatedSprite2D.animation = "duck"
 		else:
 			$AnimatedSprite2D.animation = "run"
 	else:
@@ -52,6 +56,7 @@ func play_animation():
 func jump():
 	if Input.is_action_pressed("jump"):
 		if current_jumps < max_jumps:
+			$AudioStreamPlayer2D.play()
 			velocity.y = jump_power
 			current_jumps += 1
 		if is_on_floor():

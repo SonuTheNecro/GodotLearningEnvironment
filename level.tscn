@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://mhlpakpgegri"]
+[gd_scene load_steps=6 format=3 uid="uid://mhlpakpgegri"]
 
 [ext_resource type="PackedScene" uid="uid://djfeeipq7vvb8" path="res://player.tscn" id="1_vet0b"]
 
@@ -7,6 +7,11 @@ size = Vector2(897, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jr3rt"]
 size = Vector2(28, 648.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8h6i"]
+size = Vector2(253, 36)
+
+[sub_resource type="ImageTexture" id="ImageTexture_0h1is"]
 
 [node name="level" type="Node2D"]
 
@@ -17,6 +22,13 @@ position = Vector2(449.5, 677)
 shape = SubResource("RectangleShape2D_8mqrt")
 debug_color = Color(0.916841, 0.113416, 0.646772, 0.42)
 
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/ground"]
+offset_left = -445.0
+offset_top = -23.0
+offset_right = 443.0
+offset_bottom = 22.0
+color = Color(0, 0.990688, 0.424499, 1)
+
 [node name="left_wall" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(9, 327.75)
 shape = SubResource("RectangleShape2D_jr3rt")
@@ -24,5 +36,30 @@ shape = SubResource("RectangleShape2D_jr3rt")
 [node name="right_wall" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(884, 330)
 shape = SubResource("RectangleShape2D_jr3rt")
+
+[node name="left_platform" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(230, 435)
+shape = SubResource("RectangleShape2D_v8h6i")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/left_platform"]
+offset_left = -124.0
+offset_top = -19.0
+offset_right = 126.0
+offset_bottom = 21.0
+color = Color(0.994578, 0.0559661, 1.92523e-07, 1)
+
+[node name="right_platform" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(702, 434)
+shape = SubResource("RectangleShape2D_v8h6i")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/right_platform"]
+offset_left = -128.0
+offset_top = -21.0
+offset_right = 127.0
+offset_bottom = 19.0
+color = Color(0, 0, 1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = SubResource("ImageTexture_0h1is")
 
 [node name="player" parent="." instance=ExtResource("1_vet0b")]

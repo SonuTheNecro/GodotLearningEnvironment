@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://djfeeipq7vvb8"]
+[gd_scene load_steps=43 format=3 uid="uid://djfeeipq7vvb8"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_lb33c"]
 [ext_resource type="Texture2D" uid="uid://dhtgw0rx886rv" path="res://player_sprites/player_death.png" id="1_v7gfp"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dkp8u6hwnp2ud" path="res://player_sprites/player_run.png" id="4_t8njp"]
 [ext_resource type="Texture2D" uid="uid://dsay6x8k3aiu0" path="res://player_sprites/player_walk.png" id="5_w475h"]
 [ext_resource type="Texture2D" uid="uid://m7b2w6rx8auj" path="res://player_sprites/player_jump.png" id="6_sh8uf"]
+[ext_resource type="AudioStream" uid="uid://ch1u224aim6aa" path="res://jump.wav" id="9_ynux7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tvy71"]
 size = Vector2(41, 77)
@@ -279,3 +280,7 @@ position = Vector2(435, 624)
 scale = Vector2(5, 5.074)
 sprite_frames = SubResource("SpriteFrames_3dqom")
 animation = &"walk"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_ynux7")
+volume_db = -13.236
