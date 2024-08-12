@@ -10,7 +10,7 @@ var current_jumps : int = 0
 func _physics_process(delta):
 	var input_dir : Vector2 = input()
 	if not is_on_floor():
-		velocity.y += gravity
+		velocity.y += gravity 
 	else:
 		velocity.y = 0
 	if input_dir != Vector2.ZERO:
@@ -34,27 +34,25 @@ func input() -> Vector2:
 	return input_dir
 func play_animation():
 	if Input.is_action_pressed("jump"):
-		$AnimatedSprite2D.animation = "jump"
+		$AnimatedSprite2D.play("jump")
 	elif Input.is_action_pressed("duck"):
-		$AnimatedSprite2D.animation = "duck"
+		$AnimatedSprite2D.play("duck")
 	elif velocity.x != 0:
-		if speed == 500:
-			$AnimatedSprite2D.animation = "walk"
-		elif speed == 250:
-			$AnimatedSprite2D.animation = "duck"
-		else:
-			$AnimatedSprite2D.animation = "run"
+		match speed:
+			750:
+				$AnimatedSprite2D.play("run")
+			500:
+				$AnimatedSprite2D.play("walk")
+			250:
+				$AnimatedSprite2D.play("duck")
 	else:
-		$AnimatedSprite2D.animation = "idle"
-	
-	
-	if velocity.x > 0:
-		$AnimatedSprite2D.flip_h = true
-	else:
-		$AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.play("idle")
+	if abs(velocity.x) > 0.001:
+		$AnimatedSprite2D.flip_h = velocity.x > 0
+
 	
 func jump():
-	if Input.is_action_pressed("jump"):
+	if Input.is_action_just_pressed("jump"):
 		if current_jumps < max_jumps:
 			$AudioStreamPlayer2D.play()
 			velocity.y = jump_power

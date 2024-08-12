@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://mhlpakpgegri"]
+[gd_scene load_steps=7 format=3 uid="uid://mhlpakpgegri"]
 
+[ext_resource type="Script" path="res://CollisionPolygon2D.gd" id="1_sdvwn"]
 [ext_resource type="PackedScene" uid="uid://djfeeipq7vvb8" path="res://player.tscn" id="1_vet0b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mqrt"]
@@ -17,7 +18,12 @@ size = Vector2(253, 36)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(72, 312, 8, 672, 928, 712, 896, 0, 864, 672, 40, 632)
+script = ExtResource("1_sdvwn")
+
 [node name="ground" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
 position = Vector2(449.5, 677)
 shape = SubResource("RectangleShape2D_8mqrt")
 debug_color = Color(0.916841, 0.113416, 0.646772, 0.42)
@@ -30,10 +36,12 @@ offset_bottom = 22.0
 color = Color(0, 0.990688, 0.424499, 1)
 
 [node name="left_wall" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
 position = Vector2(9, 327.75)
 shape = SubResource("RectangleShape2D_jr3rt")
 
 [node name="right_wall" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
 position = Vector2(884, 330)
 shape = SubResource("RectangleShape2D_jr3rt")
 
@@ -42,9 +50,9 @@ position = Vector2(230, 435)
 shape = SubResource("RectangleShape2D_v8h6i")
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D/left_platform"]
-offset_left = -124.0
+offset_left = -126.0
 offset_top = -19.0
-offset_right = 126.0
+offset_right = 130.0
 offset_bottom = 21.0
 color = Color(0.994578, 0.0559661, 1.92523e-07, 1)
 
@@ -53,9 +61,9 @@ position = Vector2(702, 434)
 shape = SubResource("RectangleShape2D_v8h6i")
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D/right_platform"]
-offset_left = -128.0
+offset_left = -126.0
 offset_top = -21.0
-offset_right = 127.0
+offset_right = 130.0
 offset_bottom = 19.0
 color = Color(0, 0, 1, 1)
 
