@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var speed : int = 500
-const jump_power: int = -2000
+var jump_power: int = -2000
 const acc : int = 50
 const friction : int = 70 # > than acc
 const gravity : int = 140
@@ -49,8 +49,8 @@ func play_animation():
 		$AnimatedSprite2D.play("idle")
 	if abs(velocity.x) > 0.001:
 		$AnimatedSprite2D.flip_h = velocity.x > 0
-
-	
+func speed_boost():
+	jump_power += -200
 func jump():
 	if Input.is_action_just_pressed("jump"):
 		if current_jumps < max_jumps:
