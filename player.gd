@@ -51,7 +51,8 @@ func play_animation():
 	else:
 		$AnimatedSprite2D.play("idle")
 	if abs(velocity.x) > 0.001:
-		$AnimatedSprite2D.flip_h = velocity.x > 0
+		flip(velocity.x > 0)
+		#$AnimatedSprite2D.flip_h = velocity.x > 0
 func speed_boost():
 	jump_power += -200
 func jump():
@@ -62,10 +63,18 @@ func jump():
 			current_jumps += 1
 		if is_on_floor():
 			current_jumps = 0
+	if Input.is_action_just_pressed("duck"):
+		velocity.y = jump_power / -2
 func push_back():
-	velocity.x = 500 * (1 )
+	velocity.x = 500 * (-1 if $AnimatedSprite2D.flip_h else 1 )
+	velocity.y = jump_power / 1.1
 	print(velocity.x)
 
 func hitbox_check(body: PhysicsBody2D):
 	if body.is_in_group("wall"):
 		push_back()
+func flip(value: bool):
+	
+	if value != $AnimatedSprite2D.flip_h:
+		$AnimatedSprite2D.flip_h = value
+		$AnimatedSprite2D/Spear/CollisionShape2D.position.x *= -1

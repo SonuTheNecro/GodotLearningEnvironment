@@ -279,7 +279,8 @@ position = Vector2(426.5, 605.5)
 shape = SubResource("RectangleShape2D_tvy71")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(435, 624)
+texture_filter = 1
+position = Vector2(440.55, 624)
 scale = Vector2(5, 5.074)
 sprite_frames = SubResource("SpriteFrames_3dqom")
 animation = &"attack"
@@ -288,7 +289,7 @@ script = ExtResource("10_80bi5")
 [node name="Spear" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Spear"]
-position = Vector2(-11.15, -0.492706)
+position = Vector2(-11.15, -0.493)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ku8gd")
 disabled = true

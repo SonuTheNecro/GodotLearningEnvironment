@@ -8,6 +8,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	
 	if frame < 4 and get_animation() == "attack":
 		$Spear.get_child(0).disabled = false
 		#print("hitbox out")
