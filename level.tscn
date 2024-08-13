@@ -15,7 +15,7 @@ size = Vector2(253, 36)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collision"]
 position = Vector2(-80, 64)
-polygon = PackedVector2Array(-1, 56, -1, 696, 887, 696, 891, 264, 835, 264, 835, 632, 439.099, 627.72, 435, 272, 95, 624, 111, 56, 0, 0)
+polygon = PackedVector2Array(-624, 704, 887, 696, 891, 264, 835, 264, 835, 632, -176, 632, -176, 128, -240, 128, -240, 632, -624, 640, -1328, 704)
 script = ExtResource("1_sdvwn")
 
 [node name="left_platform" type="CollisionShape2D" parent="collision"]
@@ -44,7 +44,7 @@ color = Color(0, 0, 1, 1)
 texture = SubResource("ImageTexture_0h1is")
 
 [node name="player" parent="." instance=ExtResource("1_vet0b")]
-position = Vector2(784, 320)
+position = Vector2(376, 688)
 
 [node name="enemy" parent="." instance=ExtResource("3_yo7cm")]
 position = Vector2(608, 368)
