@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://djfeeipq7vvb8"]
+[gd_scene load_steps=45 format=3 uid="uid://djfeeipq7vvb8"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_lb33c"]
 [ext_resource type="Texture2D" uid="uid://dhtgw0rx886rv" path="res://player_sprites/player_death.png" id="1_v7gfp"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dsay6x8k3aiu0" path="res://player_sprites/player_walk.png" id="5_w475h"]
 [ext_resource type="Texture2D" uid="uid://m7b2w6rx8auj" path="res://player_sprites/player_jump.png" id="6_sh8uf"]
 [ext_resource type="AudioStream" uid="uid://ch1u224aim6aa" path="res://jump.wav" id="9_ynux7"]
+[ext_resource type="Script" path="res://AnimatedSprite2D.gd" id="10_80bi5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tvy71"]
 size = Vector2(41, 77)
@@ -267,6 +268,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ku8gd"]
+size = Vector2(5.7, 5.71541)
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_lb33c")
 
@@ -279,9 +283,18 @@ position = Vector2(435, 624)
 scale = Vector2(5, 5.074)
 sprite_frames = SubResource("SpriteFrames_3dqom")
 animation = &"attack"
+script = ExtResource("10_80bi5")
+
+[node name="Spear" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Spear"]
+position = Vector2(-11.15, -0.492706)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ku8gd")
+disabled = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_ynux7")
 volume_db = -13.236
 
-[connection signal="animation_changed" from="AnimatedSprite2D" to="." method="speed_boost"]
+[connection signal="body_entered" from="AnimatedSprite2D/Spear" to="." method="hitbox_check"]

@@ -16,10 +16,11 @@ size = Vector2(253, 36)
 
 [node name="level" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["wall"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(72, 312, 8, 672, 928, 712, 896, 0, 864, 672, 40, 632)
+position = Vector2(5, 56)
+polygon = PackedVector2Array(-1, 56, -1, 696, 887, 696, 891, 264, 835, 264, 835, 632, 95, 624, 111, 56)
 script = ExtResource("1_sdvwn")
 
 [node name="ground" type="CollisionShape2D" parent="StaticBody2D"]

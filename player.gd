@@ -7,10 +7,10 @@ const gravity : int = 140
 const max_jumps : int = 2
 var current_jumps : int = 0
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var input_dir : Vector2 = input()
 	if not is_on_floor():
-		velocity.y += gravity 
+		velocity.y += gravity
 	else:
 		velocity.y = 0
 	if input_dir != Vector2.ZERO:
@@ -27,13 +27,16 @@ func _physics_process(delta):
 		play_animation()
 	jump()
 	move_and_slide()
-	
+func _process(_delta):
+	pass
 func input() -> Vector2:
 	var input_dir = Vector2.ZERO
 	input_dir.x = Input.get_axis("move_left", "move_right") # Left = -1, Right = +1
 	return input_dir
 func play_animation():
-	if Input.is_action_pressed("jump"):
+	if Input.is_action_pressed("attack"):
+		$AnimatedSprite2D.play("attack")
+	elif Input.is_action_pressed("jump"):
 		$AnimatedSprite2D.play("jump")
 	elif Input.is_action_pressed("duck"):
 		$AnimatedSprite2D.play("duck")
@@ -59,3 +62,10 @@ func jump():
 			current_jumps += 1
 		if is_on_floor():
 			current_jumps = 0
+func push_back():
+	velocity.x = 500 * (1 )
+	print(velocity.x)
+
+func hitbox_check(body: PhysicsBody2D):
+	if body.is_in_group("wall"):
+		push_back()
