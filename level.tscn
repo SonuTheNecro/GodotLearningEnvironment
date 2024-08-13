@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://mhlpakpgegri"]
 
-[ext_resource type="Script" path="res://CollisionPolygon2D.gd" id="1_sdvwn"]
+[ext_resource type="Script" path="res://scripts/CollisionPolygon2D.gd" id="1_sdvwn"]
 [ext_resource type="PackedScene" uid="uid://djfeeipq7vvb8" path="res://player.tscn" id="1_vet0b"]
 [ext_resource type="PackedScene" uid="uid://cld782wy03wqn" path="res://enemy.tscn" id="3_yo7cm"]
 
@@ -15,7 +15,7 @@ size = Vector2(253, 36)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collision"]
 position = Vector2(-80, 64)
-polygon = PackedVector2Array(-624, 704, 887, 696, 891, 264, 835, 264, 835, 632, -176, 632, -176, 128, -240, 128, -240, 632, -624, 640, -1328, 704)
+polygon = PackedVector2Array(-624, 704, 1160, 696, 1168, 256, 1104, 256, 1104, 640, -176, 632, -176, 128, -240, 128, -240, 632, -624, 640, -1328, 704)
 script = ExtResource("1_sdvwn")
 
 [node name="left_platform" type="CollisionShape2D" parent="collision"]

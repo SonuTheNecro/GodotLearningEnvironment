@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dkp8u6hwnp2ud" path="res://player_sprites/player_run.png" id="4_t8njp"]
 [ext_resource type="Texture2D" uid="uid://dsay6x8k3aiu0" path="res://player_sprites/player_walk.png" id="5_w475h"]
 [ext_resource type="Texture2D" uid="uid://m7b2w6rx8auj" path="res://player_sprites/player_jump.png" id="6_sh8uf"]
-[ext_resource type="AudioStream" uid="uid://ch1u224aim6aa" path="res://jump.wav" id="9_ynux7"]
-[ext_resource type="Script" path="res://AnimatedSprite2D.gd" id="10_80bi5"]
+[ext_resource type="AudioStream" uid="uid://liqwi48dp1h1" path="res://audio/jump.wav" id="9_ynux7"]
+[ext_resource type="Script" path="res://scripts/AnimatedSprite2D.gd" id="10_80bi5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tvy71"]
 size = Vector2(41, 77)
@@ -290,7 +290,6 @@ script = ExtResource("10_80bi5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Spear"]
 position = Vector2(-11.15, -0.493)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ku8gd")
 disabled = true
 
