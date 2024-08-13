@@ -76,5 +76,6 @@ func hitbox_check(body: PhysicsBody2D):
 func flip(value: bool):
 	
 	if value != $AnimatedSprite2D.flip_h:
+		$CollisionShape2D.position.x *= -1
 		$AnimatedSprite2D.flip_h = value
 		$AnimatedSprite2D/Spear/CollisionShape2D.position.x *= -1

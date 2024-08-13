@@ -271,16 +271,16 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ku8gd"]
 size = Vector2(5.7, 5.71541)
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_lb33c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(426.5, 605.5)
+position = Vector2(0, -37.905)
 shape = SubResource("RectangleShape2D_tvy71")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(440.55, 624)
+position = Vector2(8.99994, -22.0001)
 scale = Vector2(5, 5.074)
 sprite_frames = SubResource("SpriteFrames_3dqom")
 animation = &"attack"

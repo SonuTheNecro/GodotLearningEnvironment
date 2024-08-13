@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://mhlpakpgegri"]
+[gd_scene load_steps=6 format=3 uid="uid://mhlpakpgegri"]
 
 [ext_resource type="Script" path="res://CollisionPolygon2D.gd" id="1_sdvwn"]
 [ext_resource type="PackedScene" uid="uid://djfeeipq7vvb8" path="res://player.tscn" id="1_vet0b"]
+[ext_resource type="PackedScene" uid="uid://cld782wy03wqn" path="res://enemy.tscn" id="3_yo7cm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8h6i"]
 size = Vector2(253, 36)
@@ -10,36 +11,40 @@ size = Vector2(253, 36)
 
 [node name="level" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["wall"]]
+[node name="collision" type="StaticBody2D" parent="." groups=["wall"]]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collision"]
 position = Vector2(-80, 64)
 polygon = PackedVector2Array(-1, 56, -1, 696, 887, 696, 891, 264, 835, 264, 835, 632, 439.099, 627.72, 435, 272, 95, 624, 111, 56, 0, 0)
 script = ExtResource("1_sdvwn")
 
-[node name="left_platform" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="left_platform" type="CollisionShape2D" parent="collision"]
 position = Vector2(230, 435)
 shape = SubResource("RectangleShape2D_v8h6i")
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D/left_platform"]
+[node name="ColorRect" type="ColorRect" parent="collision/left_platform"]
 offset_left = -126.0
 offset_top = -19.0
 offset_right = 130.0
 offset_bottom = 21.0
 color = Color(0.994578, 0.0559661, 1.92523e-07, 1)
 
-[node name="right_platform" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="right_platform" type="CollisionShape2D" parent="collision"]
 position = Vector2(702, 434)
 shape = SubResource("RectangleShape2D_v8h6i")
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D/right_platform"]
+[node name="ColorRect" type="ColorRect" parent="collision/right_platform"]
 offset_left = -126.0
 offset_top = -21.0
 offset_right = 130.0
 offset_bottom = 19.0
 color = Color(0, 0, 1, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="collision"]
 texture = SubResource("ImageTexture_0h1is")
 
 [node name="player" parent="." instance=ExtResource("1_vet0b")]
+position = Vector2(784, 320)
+
+[node name="enemy" parent="." instance=ExtResource("3_yo7cm")]
+position = Vector2(608, 368)
