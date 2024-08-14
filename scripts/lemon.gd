@@ -25,10 +25,11 @@ func flip():
 
 
 func stabbed(body):
-	if body.is_in_group("weapon"):
+	if body.is_in_group("weapon") and not dead:
 		dead = true
 		$AnimatedSprite2D.play("death")
 		$CollisionShape2D.position.y = -6.765
 		$CollisionShape2D.rotation = 90
-		$hurtbox/CollisionShape2D.disabled = true
-		$RayCast2D.enabled = false
+		#$hurtbox/CollisionShape2D.set_deferred("disabled",false)
+		#$hurtbox.disable_mode = Node.PROCESS_MODE_DISABLED
+		#$RayCast2D.enabled = false
