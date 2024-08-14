@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cwonpglp1puvs"]
+[gd_scene load_steps=20 format=3 uid="uid://cwonpglp1puvs"]
 
 [ext_resource type="Texture2D" uid="uid://bvl7o36576h7" path="res://player_sprites/lemon/lemon_death.png" id="1_gjyt1"]
 [ext_resource type="Script" path="res://scripts/lemon.gd" id="1_qfr7f"]
@@ -71,7 +71,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_otk64")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -111,6 +111,9 @@ animations = [{
 radius = 6.0
 height = 22.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4exby"]
+size = Vector2(6, 18)
+
 [node name="lemon" type="CharacterBody2D"]
 script = ExtResource("1_qfr7f")
 
@@ -118,7 +121,7 @@ script = ExtResource("1_qfr7f")
 texture_filter = 5
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_3s5yd")
-animation = &"walk"
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
@@ -128,3 +131,12 @@ shape = SubResource("CapsuleShape2D_4twva")
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(-7, -13)
 target_position = Vector2(-3, 0)
+
+[node name="hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_4exby")
+debug_color = Color(0.983694, 0, 0.35064, 0.42)
+
+[connection signal="area_entered" from="hurtbox" to="." method="stabbed"]

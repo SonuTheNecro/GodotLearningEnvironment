@@ -286,9 +286,9 @@ sprite_frames = SubResource("SpriteFrames_3dqom")
 animation = &"attack"
 script = ExtResource("10_80bi5")
 
-[node name="Spear" type="Area2D" parent="AnimatedSprite2D"]
+[node name="Spear" type="Area2D" parent="AnimatedSprite2D" groups=["weapon"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Spear"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Spear" groups=["weapon"]]
 position = Vector2(-11.15, -0.493)
 shape = SubResource("RectangleShape2D_ku8gd")
 disabled = true
