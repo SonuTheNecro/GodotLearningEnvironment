@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://cwonpglp1puvs"]
+[gd_scene load_steps=19 format=3 uid="uid://cwonpglp1puvs"]
 
 [ext_resource type="Texture2D" uid="uid://bvl7o36576h7" path="res://player_sprites/lemon/lemon_death.png" id="1_gjyt1"]
+[ext_resource type="Script" path="res://scripts/lemon.gd" id="1_qfr7f"]
 [ext_resource type="Texture2D" uid="uid://txx2qdpcux07" path="res://player_sprites/lemon/lemon_idle.png" id="2_r25pe"]
 [ext_resource type="Texture2D" uid="uid://loljtoprnnr6" path="res://player_sprites/lemon/lemon_run.png" id="3_obb8t"]
 
@@ -106,17 +107,24 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o0w12"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4twva"]
+radius = 6.0
+height = 22.0
 
 [node name="lemon" type="CharacterBody2D"]
+script = ExtResource("1_qfr7f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 5
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_3s5yd")
-animation = &"idle"
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -15)
-shape = SubResource("CapsuleShape2D_o0w12")
+position = Vector2(0, -12)
+shape = SubResource("CapsuleShape2D_4twva")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-7, -13)
+target_position = Vector2(-3, 0)

@@ -64,7 +64,7 @@ func jump():
 		if is_on_floor():
 			current_jumps = 0
 	if Input.is_action_just_pressed("duck"):
-		velocity.y = jump_power / -2
+		velocity.y = jump_power / -2.0
 func push_back():
 	velocity.x = 500 * (-1 if $AnimatedSprite2D.flip_h else 1 )
 	velocity.y = jump_power / 1.1
