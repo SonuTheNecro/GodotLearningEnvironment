@@ -1,0 +1,122 @@
+[gd_scene load_steps=18 format=3 uid="uid://cwonpglp1puvs"]
+
+[ext_resource type="Texture2D" uid="uid://bvl7o36576h7" path="res://player_sprites/lemon/lemon_death.png" id="1_gjyt1"]
+[ext_resource type="Texture2D" uid="uid://txx2qdpcux07" path="res://player_sprites/lemon/lemon_idle.png" id="2_r25pe"]
+[ext_resource type="Texture2D" uid="uid://loljtoprnnr6" path="res://player_sprites/lemon/lemon_run.png" id="3_obb8t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jpbs"]
+atlas = ExtResource("1_gjyt1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bf0j"]
+atlas = ExtResource("1_gjyt1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccoth"]
+atlas = ExtResource("1_gjyt1")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plalp"]
+atlas = ExtResource("1_gjyt1")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otk64"]
+atlas = ExtResource("1_gjyt1")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4h4c"]
+atlas = ExtResource("2_r25pe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebttf"]
+atlas = ExtResource("2_r25pe")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cicgg"]
+atlas = ExtResource("3_obb8t")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i58di"]
+atlas = ExtResource("3_obb8t")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mry82"]
+atlas = ExtResource("3_obb8t")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1l5x6"]
+atlas = ExtResource("3_obb8t")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dqif"]
+atlas = ExtResource("3_obb8t")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3s5yd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jpbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bf0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccoth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plalp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otk64")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4h4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebttf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cicgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i58di")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mry82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1l5x6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dqif")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o0w12"]
+
+[node name="lemon" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 5
+position = Vector2(0, -15)
+sprite_frames = SubResource("SpriteFrames_3s5yd")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_o0w12")
