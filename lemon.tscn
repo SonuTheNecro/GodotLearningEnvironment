@@ -121,7 +121,7 @@ script = ExtResource("1_qfr7f")
 texture_filter = 5
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_3s5yd")
-animation = &"death"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
