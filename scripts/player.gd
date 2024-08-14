@@ -68,7 +68,7 @@ func jump():
 func push_back():
 	velocity.x = 500 * (-1 if $AnimatedSprite2D.flip_h else 1 )
 	velocity.y = jump_power / 1.1
-	print(velocity.x)
+	#print(velocity.x)
 
 func hitbox_check(body: PhysicsBody2D):
 	if body.is_in_group("wall"):

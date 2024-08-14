@@ -1,6 +1,6 @@
 [gd_scene load_steps=45 format=3 uid="uid://djfeeipq7vvb8"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_lb33c"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_lb33c"]
 [ext_resource type="Texture2D" uid="uid://dhtgw0rx886rv" path="res://player_sprites/player_death.png" id="1_v7gfp"]
 [ext_resource type="Texture2D" uid="uid://dabudwieip7mk" path="res://player_sprites/player_hurt.png" id="2_6deiq"]
 [ext_resource type="Texture2D" uid="uid://coadbj2vjjqxp" path="res://player_sprites/player_attack.png" id="2_tkdks"]
@@ -275,7 +275,7 @@ size = Vector2(5.7, 5.71541)
 script = ExtResource("1_lb33c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -37.905)
+position = Vector2(0, -39.955)
 shape = SubResource("RectangleShape2D_tvy71")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

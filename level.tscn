@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://mhlpakpgegri"]
+[gd_scene load_steps=5 format=3 uid="uid://mhlpakpgegri"]
 
 [ext_resource type="Script" path="res://scripts/CollisionPolygon2D.gd" id="1_sdvwn"]
 [ext_resource type="PackedScene" uid="uid://djfeeipq7vvb8" path="res://player.tscn" id="1_vet0b"]
@@ -7,44 +7,46 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8h6i"]
 size = Vector2(253, 36)
 
-[sub_resource type="ImageTexture" id="ImageTexture_0h1is"]
-
 [node name="level" type="Node2D"]
 
-[node name="collision" type="StaticBody2D" parent="." groups=["wall"]]
+[node name="main_collision" type="StaticBody2D" parent="." groups=["wall"]]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collision"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="main_collision"]
 position = Vector2(-80, 64)
-polygon = PackedVector2Array(-624, 704, 1160, 696, 1168, 256, 1104, 256, 1104, 640, -176, 632, -176, 128, -240, 128, -240, 632, -624, 640, -1328, 704)
+polygon = PackedVector2Array(16, 576, 16, 896, 1488, 896, 1488, 256, 984, 256, 976, 640, 784, 640, 784, 768, 784, 888, 592, 880, 592, 640, 336, 640, 336, 576)
 script = ExtResource("1_sdvwn")
 
-[node name="left_platform" type="CollisionShape2D" parent="collision"]
+[node name="left_platform" type="CollisionShape2D" parent="main_collision"]
 position = Vector2(230, 435)
 shape = SubResource("RectangleShape2D_v8h6i")
 
-[node name="ColorRect" type="ColorRect" parent="collision/left_platform"]
+[node name="ColorRect" type="ColorRect" parent="main_collision/left_platform"]
 offset_left = -126.0
 offset_top = -19.0
 offset_right = 130.0
 offset_bottom = 21.0
 color = Color(0.994578, 0.0559661, 1.92523e-07, 1)
 
-[node name="right_platform" type="CollisionShape2D" parent="collision"]
+[node name="right_platform" type="CollisionShape2D" parent="main_collision"]
 position = Vector2(702, 434)
 shape = SubResource("RectangleShape2D_v8h6i")
 
-[node name="ColorRect" type="ColorRect" parent="collision/right_platform"]
+[node name="ColorRect" type="ColorRect" parent="main_collision/right_platform"]
 offset_left = -126.0
 offset_top = -21.0
 offset_right = 130.0
 offset_bottom = 19.0
 color = Color(0, 0, 1, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="collision"]
-texture = SubResource("ImageTexture_0h1is")
+[node name="side_array" type="StaticBody2D" parent="." groups=["wall"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="side_array"]
+position = Vector2(128, 0)
+polygon = PackedVector2Array(-320, 448, -320, 960, -1024, 960, -1024, 448, -896, 448, -896, 768, -512, 768, -512, 448)
+script = ExtResource("1_sdvwn")
 
 [node name="player" parent="." instance=ExtResource("1_vet0b")]
-position = Vector2(376, 688)
+position = Vector2(1064, 304)
 
 [node name="enemy" parent="." instance=ExtResource("3_yo7cm")]
 position = Vector2(608, 368)
